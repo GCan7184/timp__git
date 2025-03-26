@@ -17,3 +17,5 @@ def test_calculate():
     response = client.get("/calculatings/", params={"a": 2, "b": 3})
     assert response.status_code == 200
     assert response.text == '"2 + 3 = 5"'
+
+#это строка для тестов, не читай её
