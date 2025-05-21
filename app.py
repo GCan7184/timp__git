@@ -3,6 +3,24 @@ import uvicorn
 
 app = FastAPI()
 
+@app.get("/")
+def read_root():
+    "Главная страница со списком доступных эндпоинтов"
+    endpoints = {
+        "Главная страница": "/",
+        "Приветствие": {
+            "url": "/greet/",
+            "params": {"name": "строка (например, Maksim)"},
+            "example": "/greet/?name=Maksim"
+        },
+        "Калькулятор": {
+            "url": "/calculate/",
+            "params": {"a": "число", "b": "число"},
+            "example": "/calculate/?a=2&b=3"
+        }
+    }
+    return endpoints
+
 @app.get("/{name}")
 def read_root():
     return {"Hello": "World"}
